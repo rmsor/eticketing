@@ -23,7 +23,10 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li>
+                    <h:form>
+                        <h:commandLink action="#{adminUser.logout()}"><i class="fa fa-sign-out fa-fw"></i> Logout</h:commandLink>
+                    </h:form>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -55,7 +58,7 @@
                         <i class="fa fa-wrench fa-fw"></i> Shows
                     </h:link>
                 </li>
-                
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
