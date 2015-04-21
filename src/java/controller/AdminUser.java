@@ -46,13 +46,12 @@ public class AdminUser implements Serializable {
     public String login() {
         if (adminName.equals("ram") && adminPassword.equals("shyam")) {
             isLoggedIn = true;
-            return "pages/admin/dashboard";
+            return "/faces/pages/admin/dashboard?faces-redirect=true";
         }else{
-            FacesMessage facesMessage = new FacesMessage("Registration Failed - user already exists");
+            FacesMessage facesMessage = new FacesMessage("Invalid User Name or Password !!");
             facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
-            System.out.println("Invalid User Name or Password !!");
-            return "pages/adminlogin";
+            return "/faces/pages/adminlogin";
         }
     }
 
@@ -62,7 +61,7 @@ public class AdminUser implements Serializable {
 
     public String logout() {
         isLoggedIn = false;
-        return "login";
+        return "/faces/pages/adminlogin?faces-redirect=true";
     }
 
     /* send to login page if they are not logged in */
@@ -74,7 +73,7 @@ public class AdminUser implements Serializable {
 
             ConfigurableNavigationHandler handler = (ConfigurableNavigationHandler) context.getApplication().getNavigationHandler();
 
-            handler.performNavigation("pages/adminlogin");
+            handler.performNavigation("/faces/pages/adminlogin?faces-redirect=true");
 
         }
 
