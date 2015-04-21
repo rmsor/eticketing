@@ -27,19 +27,23 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form role="form">
+                                        <h:form role="form">
                                             <div class="form-group">
                                                 <label>Theater Name</label>
-                                                <input class="form-control"/>
+                                                <h:inputText value="#{theaterController.tName}" class="form-control"/>
                                                 <p class="text-danger">Enter name</p>
                                             </div>
                                             <div class="form-group">
                                                 <label>Location</label>
-                                                <input  class="form-control"/>
+                                                <h:inputText value="#{theaterController.tLocation}"  class="form-control"/>
                                             </div>
-                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <div class="form-group">
+                                                <label>Number of Screens</label>
+                                                <h:inputText value="#{theaterController.tNoScreens}"  class="form-control"/>
+                                            </div>
+                                            <h:commandButton class="btn btn-primary" value="Save" action="#{theaterController.addTheater}"/>
                                             <button class="btn btn-info" type="reset">Reset</button>
-                                        </form>
+                                        </h:form>
                                     </div>
                                 </div>
                                 <!-- /.row (nested) -->
@@ -53,6 +57,5 @@
 
             </ui:define>
         </ui:composition>
-
     </h:body>
 </html>
