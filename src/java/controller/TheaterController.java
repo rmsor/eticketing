@@ -30,12 +30,13 @@ public class TheaterController {
         theaterList = new ArrayList();
 
     }
-    
+
     @PostConstruct
-    public void setThearterList()
-    {
-               setTheaterList(theaterFacade.findAll());
- 
+    public void setThearterList() {
+
+        setTheaterList(theaterFacade.findAll());
+        System.out.println("Hello Size=" + theaterList.size());
+
     }
 
     @Inject
@@ -51,6 +52,15 @@ public class TheaterController {
         this.theaterList = theaterList;
     }
 
+    private Long tID;
+
+    public Long gettID() {
+        return tID;
+    }
+
+    public void settID(Long tID) {
+        this.tID = tID;
+    }
     private String tName;
     private String tLocation;
     private int tNoScreens;
@@ -80,13 +90,52 @@ public class TheaterController {
     }
 
     public String addTheater() {
-        Theater theaterEntity = new Theater();
-        theaterEntity.setTname(tName);
-        theaterEntity.setLocation(tLocation);
-        theaterEntity.setNoOfScreens(tNoScreens);
-        theaterFacade.create(theaterEntity);
+
+        System.out.println("TID=" + tID);
+
+        if (tID != null) {
+
+            Theater theaterEntity = new Theater();
+            theaterEntity.setTid(tID);
+            theaterEntity.setTname(tName);
+            theaterEntity.setLocation(tLocation);
+            theaterEntity.setNoOfScreens(tNoScreens);
+            theaterFacade.edit(theaterEntity);
+
+            return "theaters?faces-redirect=true";
+
+        } else {
+            Theater theaterEntity = new Theater();
+            theaterEntity.setTname(tName);
+            theaterEntity.setLocation(tLocation);
+            theaterEntity.setNoOfScreens(tNoScreens);
+            theaterFacade.create(theaterEntity);
+            return "theaters?faces-redirect=true";
+        }
+
+    }
+
+    public String deleteRecord(long deleteID) {
+        Theater t = theaterFacade.find(deleteID);
+        theaterFacade.remove(t);
+        System.out.println(" Delete ID=" + deleteID);
         return "theaters?faces-redirect=true";
 
+    }
+
+    public String editPageDisplay(long editID) {
+
+        System.out.println("Edit ID=" + editID);
+
+        Theater t = theaterFacade.find(editID);
+        settID(t.getTid());
+        settName(t.getTname());
+        settLocation(t.getLocation());
+        settNoScreens(t.getNoOfScreens());
+
+        System.out.println("After set ID=" + tID + "=" + tName);
+
+        return "addTheaters?faces-redirect=false";
     }
 
 }

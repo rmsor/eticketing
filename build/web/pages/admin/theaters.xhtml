@@ -7,6 +7,7 @@
       xmlns:f="http://java.sun.com/jsf/core" >
     <h:head></h:head>
     <h:body>
+
         <ui:composition template="../admin_template/main_layout.xhtml">
             <ui:define name="content">
                 <div class="row">
@@ -41,15 +42,41 @@
                                             </f:facet>
                                             <h:outputText value="#{theaters.location}"/>
                                         </h:column>
-                                        
-                                        
-                                         <h:column>
+
+
+                                        <h:column>
                                             <f:facet name="header">
                                                 <h:outputText value="Number of Screens" style="font-weight: bold"/>
                                             </f:facet>
-                                             <h:outputText value="#{theaters.noOfScreens}"/>
+                                            <h:outputText value="#{theaters.noOfScreens}"/>
                                         </h:column>
-                                        
+
+                                        <h:column>
+
+                                            <h:form role="form">
+                                                <f:facet name="header">
+                                                    <h:outputText value="Edit" style="font-weight: bold"/>
+                                                </f:facet>
+
+
+                                                <h:commandButton value="Edit" action="#{theaterController.editPageDisplay(theaters.tid)}" />
+
+                                            </h:form>
+                                        </h:column>
+
+                                        <h:column>
+
+                                            <h:form role="form">
+
+                                                <f:facet name="header">
+                                                    <h:outputText value="Delete" style="font-weight: bold"/>
+                                                </f:facet>
+
+                                                <h:commandButton value="Delete"  action="#{theaterController.deleteRecord(theaters.tid)}" />
+
+                                            </h:form>
+                                        </h:column>
+
                                     </h:dataTable>
 
 
@@ -65,6 +92,5 @@
 
             </ui:define>
         </ui:composition>
-
     </h:body>
 </html>
