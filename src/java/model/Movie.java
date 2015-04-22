@@ -68,6 +68,9 @@ public class Movie implements Serializable {
     @Size(max = 255)
     @Column(name = "director")
     private String director;
+    @Size(max = 255)
+    @Column(name = "profilePic")
+    private String profilePic;
     @Size(max = 50)
     @Column(name = "length")
     private String length;
@@ -155,6 +158,15 @@ public class Movie implements Serializable {
     public void setGenreid(Genre genreid) {
         this.genreid = genreid;
     }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+    
 
     @XmlTransient
     public Collection<Show> getShowCollection() {

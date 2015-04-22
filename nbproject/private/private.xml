@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/D:/STUDY/MUM/eticketing/web/pages/admin/addMovie.xhtml</file>
+            <file>file:/D:/STUDY/MUM/eticketing/src/java/ejb/MovieFacade.java</file>
             <file>file:/D:/STUDY/MUM/eticketing/src/java/controller/GenreController.java</file>
-            <file>file:/D:/STUDY/MUM/eticketing/src/java/ejb/GenreFacade.java</file>
+            <file>file:/D:/STUDY/MUM/eticketing/src/java/controller/AdminUser.java</file>
+            <file>file:/D:/STUDY/MUM/eticketing/web/pages/admin/movies.xhtml</file>
             <file>file:/D:/STUDY/MUM/eticketing/src/java/model/Movie.java</file>
-            <file>file:/D:/STUDY/MUM/eticketing/src/conf/persistence.xml</file>
-            <file>file:/D:/STUDY/MUM/eticketing/web/pages/admin/genre.xhtml</file>
             <file>file:/D:/STUDY/MUM/eticketing/src/java/model/Genre.java</file>
-            <file>file:/D:/STUDY/MUM/eticketing/web/pages/admin/addGenre.xhtml</file>
-=======
-            <file>file:/home/dharmaraj/NetBeansProjects/eticketing/web/pages/admin/theaters.xhtml</file>
-            <file>file:/home/dharmaraj/NetBeansProjects/eticketing/src/java/controller/TheaterController.java</file>
-            <file>file:/home/dharmaraj/NetBeansProjects/eticketing/web/pages/admin/addTheaters.xhtml</file>
->>>>>>> origin/master
+            <file>file:/D:/STUDY/MUM/eticketing/src/java/controller/MovieController.java</file>
         </group>
     </open-files>
 </project-private>

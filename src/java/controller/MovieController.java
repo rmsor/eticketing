@@ -7,6 +7,9 @@ package controller;
 
 import ejb.GenreFacade;
 import ejb.MovieFacade;
+import helpers.ImageHelper;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +19,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.Part;
 import model.Genre;
 import model.Movie;
 
@@ -41,6 +45,10 @@ public class MovieController {
     private Genre genreObj;
     private Long movieid;
     private Long genreid;
+    private String profilePic;
+    private Part file1;
+    private String message;
+    private String oldImage;
 
     private List<Movie> movieList;
 
@@ -56,7 +64,7 @@ public class MovieController {
         setMovieList(gF.findAll());
     }
 
-    public String save() {
+    public String save() throws IOException {
         FacesMessage facesMessage;
         Movie gnr = (movieid != null) ? gF.findById(movieid) : new Movie();
         gnr.setMname(mname);
@@ -67,7 +75,29 @@ public class MovieController {
         gnr.setReleaseDate(releaseDate);
         genreObj = (Genre) geF.findById(genreid);
         gnr.setGenreid(genreObj);
+        String st = "success";
+        if (getFile1() != null) {
+            st = ImageHelper.upload(file1, oldImage,"movie_pics");
+            setMessage(ImageHelper.getMessage());
+            if (st.equalsIgnoreCase("success")) {
+
+                String fileName = "";
+                if (getFile1() != null) {
+                    fileName = "/" + "faces" + "/" + "resources" + "/" + "movie_pics" + "/" + ImageHelper.getNewFileName();
+                }
+                gnr.setProfilePic(fileName);
+
+            } else {
+                facesMessage = new FacesMessage("Could Not Upload Image");
+                facesMessage.setSeverity(FacesMessage.SEVERITY_FATAL);
+                FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+                return "addMovie";
+            }
+        }
         if (movieid != null) {
+            if (getFile1() == null) {
+                gnr.setProfilePic(oldImage);
+            }
             gF.edit(gnr);
             facesMessage = new FacesMessage("Movie Updated Successfully");
         } else {
@@ -77,6 +107,7 @@ public class MovieController {
         facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         return "/faces/pages/admin/movies?faces-redirect=true";
+
     }
 
     public String update(Long gid) {
@@ -89,6 +120,8 @@ public class MovieController {
         setReleaseDate(gnr.getReleaseDate());
         setLength(gnr.getLength());
         setMovieid(gnr.getMovieid());
+        setProfilePic(gnr.getProfilePic());
+        setOldImage(gnr.getProfilePic());
         return "/faces/pages/admin/addMovie";
     }
 
@@ -184,5 +217,38 @@ public class MovieController {
     public GenreFacade getGeF() {
         return geF;
     }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public Part getFile1() {
+        return file1;
+    }
+
+    public void setFile1(Part file1) {
+        this.file1 = file1;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setOldImage(String oldImage) {
+        this.oldImage = oldImage;
+    }
+
+    public String getOldImage() {
+        return oldImage;
+    }
+    
 
 }
