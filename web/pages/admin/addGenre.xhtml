@@ -30,9 +30,10 @@
                                         <h:form>
                                             <div class="form-group">
                                                 <label>Genre Name</label>
-                                                <h:inputText  class="form-control"/>
-                                                <p class="text-danger">Enter name</p>
+                                                <h:inputText id="genName" required="true" value="#{genre.name}" class="form-control"/>
+                                                <h:message for="genName" class="text-danger"/>
                                             </div>
+                                            <h:inputHidden value="#{genre.genreid}" class="form-control"/>
                                             <h:commandButton action="#{genre.save()}" class="btn btn-primary" value="Save"/>
                                             <button class="btn btn-info" type="reset">Reset</button>
                                         </h:form>

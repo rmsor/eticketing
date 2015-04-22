@@ -29,6 +29,8 @@ public class GenreController {
 
     private String name;
 
+    private Long genreid;
+
     private List<Genre> genreList;
 
     /**
@@ -37,17 +39,40 @@ public class GenreController {
     public GenreController() {
         genreList = new ArrayList();
     }
-    
+
     @PostConstruct
-    public void setData(){        
+    public void setData() {
         setGenreList(gF.findAll());
     }
 
     public String save() {
-        Genre gnr = new Genre();
-        gnr.setName(name);
-        gF.create(gnr);
-        FacesMessage facesMessage = new FacesMessage("Genre Added Successfully");
+        FacesMessage facesMessage;
+        if (genreid !=null) {
+            Genre gnr = gF.findById(genreid);
+            gnr.setGenreName(name);
+            gF.edit(gnr);
+            facesMessage = new FacesMessage("Genre Updated Successfully");
+        } else {
+            Genre gnr = new Genre();
+            gnr.setGenreName(name);
+            gF.create(gnr);
+            facesMessage = new FacesMessage("Genre Added Successfully");
+        }
+        facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
+        FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+        return "/faces/pages/admin/genre?faces-redirect=true";
+    }
+
+    public String update(Long gid) {
+        Genre gnr = gF.findById(gid);;
+        setName(gnr.getGenreName());
+        setGenreid(gnr.getGenreid());
+        return "/faces/pages/admin/addGenre";
+    }
+    public String delete(Long gid) {
+        Genre gnr = gF.findById(gid);;
+        gF.remove(gnr);
+        FacesMessage facesMessage = new FacesMessage("Deleted Successfully");
         facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         return "genre?faces-redirect=true";
@@ -75,6 +100,14 @@ public class GenreController {
 
     public void setGenreList(List<Genre> genreList) {
         this.genreList = genreList;
+    }
+
+    public void setGenreid(Long genreid) {
+        this.genreid = genreid;
+    }
+
+    public Long getGenreid() {
+        return genreid;
     }
 
 }

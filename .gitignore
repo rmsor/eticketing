@@ -41,4 +41,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+<<<<<<< HEAD
 /dist/
+=======
+
+#buildfiles
+build/*
+>>>>>>> 7bab758b1ec519fa82934cc55e563a92500ff217

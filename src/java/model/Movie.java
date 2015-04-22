@@ -148,6 +148,9 @@ public class Movie implements Serializable {
     public Genre getGenreid() {
         return genreid;
     }
+    public Long getGenreID() {
+        return genreid.getGenreid();
+    }
 
     public void setGenreid(Genre genreid) {
         this.genreid = genreid;
