@@ -35,6 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Genre.findByGenreid", query = "SELECT g FROM Genre g WHERE g.genreid = :genreid"),
     @NamedQuery(name = "Genre.findByName", query = "SELECT g FROM Genre g WHERE g.genreName = :name")})
 public class Genre implements Serializable {
+    @OneToMany(mappedBy = "genreid")
+    private Collection<Movie> movieCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -99,6 +101,15 @@ public class Genre implements Serializable {
     @Override
     public String toString() {
         return "model.Genre[ genreid=" + genreid + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Movie> getMovieCollection() {
+        return movieCollection;
+    }
+
+    public void setMovieCollection(Collection<Movie> movieCollection) {
+        this.movieCollection = movieCollection;
     }
     
 }

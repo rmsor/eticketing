@@ -16,9 +16,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -35,8 +34,8 @@ import model.UserInfo;
  * @author rmsor_000
  */
 @Named("signupController")
-@SessionScoped
-public class SignupController implements Serializable {
+@RequestScoped
+public class SignupController extends BaseController {
 
     @Inject
     private EmailSessionBean emailSessionBean;
@@ -131,9 +130,16 @@ public class SignupController implements Serializable {
 //    }
 
     public String saveRegInfo() {
+        System.out.println("Name"+firstName);
+        System.out.println("Pwd"+password);
         user = userFacade.findByEmail(email);
         if (user == null) {
             user = new UserInfo();
+            user.setAddressLine1("NONE");
+            user.setAddressLine2("NONE");
+            user.setPhoneNumber("000000-00000");
+            user.setAge("20");
+            user.setDtype("MEMBER");
             user.setEmail(email);
             user.setUserName(email);
             user.setProfilePic("test.jpg");
@@ -355,7 +361,7 @@ public class SignupController implements Serializable {
         return null;
     }
 
-    public static final int BUFFER_SIZE = 3000000;
+    private static final int BUFFER_SIZE = 3000000;
 
     public void validateFile(FacesContext con, UIComponent comp, Object value) {
         Part p = (Part) value;

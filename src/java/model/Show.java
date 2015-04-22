@@ -69,6 +69,8 @@ public class Show implements Serializable {
     @NotNull
     @Column(name = "availableSeats")
     private int availableSeats;
+    @Column(name = "price")
+    private float price;
     @Column(name = "bookedSeats")
     private Integer bookedSeats;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "showid")
@@ -82,6 +84,7 @@ public class Show implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "showid")
     private Collection<Reservation> reservationCollection;
 
+    
     public Show() {
     }
 
@@ -176,6 +179,14 @@ public class Show implements Serializable {
     public void setTid(Theater tid) {
         this.tid = tid;
     }
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
 
     @XmlTransient
     public Collection<Reservation> getReservationCollection() {
