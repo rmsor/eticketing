@@ -8,7 +8,6 @@ package controller;
 import ejb.GenreFacade;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -49,7 +48,7 @@ public class GenreController {
     public String save() {
         FacesMessage facesMessage;
         if (genreid !=null) {
-            Genre gnr = gF.findById(genreid);;
+            Genre gnr = gF.findById(genreid);
             gnr.setGenreName(name);
             gF.edit(gnr);
             facesMessage = new FacesMessage("Genre Updated Successfully");

@@ -11,11 +11,11 @@
             <ui:define name="content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add Genre</h1>
+                        <h1 class="page-header">Add/Edit Movie</h1>
                     </div>
                 </div>
                 <div class="row">
-                    <h:button  style="float:right;margin-right: 30px;margin-bottom:10px;" value="Back" outcome="/pages/admin/genre.xhtml" class="btn btn-outline btn-primary"/>
+                    <h:button  style="float:right;margin-right: 30px;margin-bottom:10px;" value="Back" outcome="/pages/admin/movies.xhtml" class="btn btn-outline btn-primary"/>
                 </div>
 
                 <div class="row">
@@ -29,12 +29,46 @@
                                     <div class="col-lg-6">
                                         <h:form>
                                             <div class="form-group">
-                                                <label>Genre Name</label>
-                                                <h:inputText id="genName" required="true" value="#{genre.name}" class="form-control"/>
-                                                <h:message for="genName" class="text-danger"/>
+                                                <label>Genre</label>
+                                                <h:selectOneMenu class="form-control" id="genreid" required="true" value="#{movie.genreid}">
+                                                    <f:selectItems value="#{movie.geF.findAll()}" var="gen" itemValue="#{gen.genreid}" itemLabel="#{gen.genreName}"/>
+                                                </h:selectOneMenu>
+                                                <h:message for="genreid" class="text-danger"/>
                                             </div>
-                                            <h:inputHidden value="#{genre.genreid}" class="form-control"/>
-                                            <h:commandButton action="#{genre.save()}" class="btn btn-primary" value="Save"/>
+                                            <div class="form-group">
+                                                <label>Movie Name</label>
+                                                <h:inputText id="mname" required="true" value="#{movie.mname}" class="form-control"/>
+                                                <h:message for="mname" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Rating</label>
+                                                <h:inputText id="rating" required="true" value="#{movie.rating}" class="form-control"/>
+                                                <h:message for="rating" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Release Date (yyyy-mm-dd)</label>
+                                                <h:inputText id="releaseDate" required="true" value="#{movie.releaseDate}" class="form-control">
+                                                    <f:convertDateTime pattern="yyyy-mm-dd"/>
+                                                </h:inputText>
+                                                <h:message for="releaseDate" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Caste</label>
+                                                <h:inputText size="50" id="caste" required="true" value="#{movie.caste}" class="form-control"/>
+                                                <h:message for="caste" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Director</label>
+                                                <h:inputText id="director" required="true" value="#{movie.director}" class="form-control"/>
+                                                <h:message for="director" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Length</label>
+                                                <h:inputText id="length" required="true" value="#{movie.length}" class="form-control"/>
+                                                <h:message for="length" class="text-danger"/>
+                                            </div>
+                                            <h:inputHidden value="#{movie.movieid}" class="form-control"/>
+                                            <h:commandButton action="#{movie.save()}" class="btn btn-primary" value="Save"/>
                                             <button class="btn btn-info" type="reset">Reset</button>
                                         </h:form>
                                     </div>
