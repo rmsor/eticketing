@@ -49,6 +49,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "UserInfo.findByRole", query = "SELECT u FROM UserInfo u WHERE u.role = :role"),
     @NamedQuery(name = "UserInfo.findByUsername", query = "SELECT u FROM UserInfo u WHERE u.userName = :userName")})
 public class UserInfo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -261,5 +262,5 @@ public class UserInfo implements Serializable {
     public String toString() {
         return "model.UserInfo[ id=" + id + " ]";
     }
-    
+
 }
