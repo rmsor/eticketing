@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="../template/main_layout.xhtml">
+            <ui:define name="content">
+                <!-- Bootstrap Core CSS -->
+                <h:outputStylesheet name="admin/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+                <div class="col-sm-9">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Dashboard</div>
+                        <div class="panel-body">
+
+                            <h:form>
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <ul class="dash">
+                                            <li>
+                                                <h:button class="delete btn btn-info btn-sm active" 
+                                                               outcome="dashboard"
+                                                               value="Dashboard"/>
+                                            </li>
+                                            <li>
+                                                <h:commandLink class="delete btn btn-info btn-sm active" 
+                                                               action="#{signupController.editProfile()}"
+                                                               value="My Profile"/>
+                                            </li>
+                                            <li>
+                                                <h:commandLink class="delete btn btn-info btn-sm active" 
+                                                               action="#{postController.showPosts()}"
+                                                               value="List My Reservation"/>
+                                            </li>
+                                            <li>
+                                                <h:commandLink class="delete btn btn-info btn-sm active" 
+                                                               action="#{postController.makePost()}"
+                                                               value="Post New Room"/>
+                                            </li>
+                                            <li>
+                                                <h:commandLink class="delete btn btn-info btn-sm active" 
+                                                               action="#{loginController.logout()}"
+                                                               value="Logout"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </h:form>
+                        </div>
+
+                        </ui:define>
+                        </ui:composition>
+
+                        </h:body>
+                        </html>

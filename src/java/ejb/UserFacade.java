@@ -34,7 +34,7 @@ public class UserFacade extends AbstractFacade<UserInfo> {
                 email = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
             }
 
-            String jpql = "SELECT u from User u where u.email = :email";
+            String jpql = "SELECT u from UserInfo u where u.email = :email";
             Query query = getEntityManager().createQuery(jpql, UserInfo.class);
             query.setParameter("email", email);
             return (UserInfo) query.getSingleResult();
@@ -47,7 +47,7 @@ public class UserFacade extends AbstractFacade<UserInfo> {
     }
 
     public int updatePassword(String password, String email) {
-        String jpql = "UPDATE User SET password = :pwd WHERE email = :email";
+        String jpql = "UPDATE UserInfo SET password = :pwd WHERE email = :email";
         Query query = em.createQuery(jpql, UserInfo.class);
         query.setParameter("pwd", password);
         query.setParameter("email", email);
@@ -63,7 +63,7 @@ public class UserFacade extends AbstractFacade<UserInfo> {
         String jpql = "";
 
         if (profilePic.length() > 1) {
-            jpql = "UPDATE User SET firstName= :firstName, "
+            jpql = "UPDATE UserInfo SET firstName= :firstName, "
                     + "lastName= :lastName , email= :email"
                     + " ,password = :pwd, "
                     + "phoneNumber=:phoneNumber, addressLine1=:addressLine1, "

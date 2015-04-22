@@ -34,10 +34,10 @@ public class EmailSessionBean {
      */
     private int port = 465;
     private String host = "smtp.gmail.com";
-    private String from = "mmaharjan@mum.edu";
+    private String from = "rpathak@mum.edu";
     private boolean auth = true;
-    private String username = "mmaharjan@mum.edu";
-    private String password = "CatsAndD0gs";
+    private String username = "rpathak@mum.edu";
+    private String password = "pathak@123";
     private Protocol protocol = Protocol.SMTPS;
     private boolean debug = true;
 
@@ -49,8 +49,8 @@ public class EmailSessionBean {
      */
     public boolean sendEmail(String to){
         boolean flag = false;
-        String subject = "New Password - FindRoomie";
-        String body = "New Password for you FindRoomie account: " + generateNewPassword();
+        String subject = "New Password - E-TICKETING";
+        String body = "New Password for you E-TICKETING account: " + generateNewPassword();
                 
         
         // update the password in the table

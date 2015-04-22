@@ -11,13 +11,21 @@
                 <title>#{msgs.title}</title>
             </f:facet>
             <h:outputStylesheet name="style/reservation.css"/>
+
         </h:head>
 
         <h:body><h:form>
                 <p:layout fullPage="true">
 
                     <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                        <div class="header">#{msgs.header}</div>
+                        <div class="header">#{msgs.header}
+                            <p id="topmenu">
+                            <h:link class="linkcolor topLink" value="Home" outcome="home" />    &nbsp;&nbsp;                        
+                            <span><h:link class="linkcolor topLink" value="Login" outcome="login"/></span>&nbsp;&nbsp;
+                            <span><h:link class="linkcolor topLink" value="Register" outcome="signup"/></span>&nbsp;&nbsp;
+                            <span><h:link class="linkcolor topLink" value="Contact Us" outcome="contactus" /></span>
+                            </p>
+                        </div>
                     </p:layoutUnit>
 
                     <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
@@ -37,9 +45,9 @@
                     </p:layoutUnit>
 
                     <p:layoutUnit position="center">
-                        
+
                         <ui:insert name="content">
-                            
+
                         </ui:insert>
 
                     </p:layoutUnit>
