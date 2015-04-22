@@ -26,7 +26,6 @@ public class GenreFacade extends AbstractFacade<Genre> {
         super(Genre.class);
     }
 
-
     public Genre findById(Long id) {
         Query findByGenreid = em.createNamedQuery("Genre.findByGenreid");
         findByGenreid.setParameter("genreid", id);

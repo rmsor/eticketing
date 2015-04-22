@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template="template/main_layout.xhtml">
+            <ui:define name="content">
+                <marquee>Now Showing</marquee>
+                <h:form>
+
+                    <p:growl id="msgs" showDetail="true" />
+
+                    <div class="firsttiming">
+                        <h3>#{msgs.panelmoviename2}</h3>
+                        <p:panelGrid columns="2">
+
+                            <f:facet name="header">
+                                <p:graphicImage url="/faces//resources/images/thelongestride.jpg" />
+                            </f:facet>
+
+                            <h:outputText value="Show Times" />
+                            <h:outputText value="1:00 pm, 4:00 pm, 7:00 pm, 9:00 pm" />
+
+                            <h:outputText value="Class" />
+                            <h:outputText value="Balcony, Dress Circle" />
+
+                            <h:outputText value="Category" />
+                            <h:outputText value="Drama" />
+
+                            <h:outputText value="Hall Seats" />
+                            <h:outputText value="500" />
+                            <h:button value="Book Now" outcome="booking"/>
+                            <h:button value="Go Home" outcome="home"/>
+                        </p:panelGrid>
+
+
+                        <h3>#{msgs.panelmoviename3}</h3>
+                        <p:panelGrid columns="2">
+                            <f:facet name="header">
+                                <p:graphicImage value="/resources/images/iamlegend.jpg" />
+                            </f:facet>
+
+                            <h:outputText value="Show Times" />
+                            <h:outputText value="12:00 pm, 4:30 pm, 7:10 pm, 9:10 pm" />
+
+                            <h:outputText value="Class" />
+                            <h:outputText value="Balcony, Dress Circle" />
+
+                            <h:outputText value="Category" />
+                            <h:outputText value="Suspense Thriller" />
+
+                            <h:outputText value="Hall Seats" />
+                            <h:outputText value="500" />
+                            <h:button value="Book Now" outcome="booking"/>
+                            <h:button value="Go Home" outcome="home"/>
+                        </p:panelGrid>
+                    </div>
+
+                    <div class="secondtiming">
+                        <h3>#{msgs.panelmoviename6}</h3>
+                        <p:panelGrid columns="2">
+                            <f:facet name="header">
+                                <p:graphicImage value="/resources/images/roy.jpg" />
+                            </f:facet>
+
+                            <h:outputText value="Show Times" />
+                            <h:outputText value="2:00 pm, 5:00 pm, 6:00 pm, 8:00 pm" />
+
+                            <h:outputText value="Class" />
+                            <h:outputText value="Balcony, Dress Circle" />
+
+                            <h:outputText value="Category" />
+                            <h:outputText value="Romance, Drama" />
+
+                            <h:outputText value="Hall Seats" />
+                            <h:outputText value="500" />
+                            <h:button value="Book Now" outcome="booking"/>
+                            <h:button value="Go Home" outcome="home"/>
+                        </p:panelGrid>
+
+                        <h3>#{msgs.panelmoviename8}</h3>
+                        <p:panelGrid columns="2">
+                            <f:facet name="header">
+                                <p:graphicImage value="/resources/images/singhisking.jpg" />
+                            </f:facet>
+
+                            <h:outputText value="Show Times" />
+                            <h:outputText value="1:50 pm, 4:40 pm, 6:30 pm, 9:30 pm" />
+
+                            <h:outputText value="Class" />
+                            <h:outputText value="Balcony, Dress Circle" />
+
+                            <h:outputText value="Category" />
+                            <h:outputText value="Comedy" />
+
+                            <h:outputText value="Hall Seats" />
+                            <h:outputText value="500" />
+                            <h:button value="Book Now" outcome="booking"/>
+                            <h:button value="Go Home" outcome="home"/>
+                        </p:panelGrid>
+                    </div>
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

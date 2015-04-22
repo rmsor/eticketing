@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" href="../style/reservation.css" type="text/css"/>
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>#{msgs.title}</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <p:layout fullPage="true">
+
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        <div class="header">#{msgs.header}</div>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                        <div class="footer">#{msgs.footer}</div>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="west" size="200" header="#{msgs.leftpanelheader}" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="#{msgs.leftpanellabel}">
+                                   <p:menuitem class="theatre"  value="#{msgs.leftpaneldata1}"  />
+                                <p:menuitem class="theatre"  value="#{msgs.leftpaneldata2}"  />
+                                <p:menuitem class="theatre"  value="#{msgs.leftpaneldata3}"  />
+                                <p:menuitem class="theatre" value="#{msgs.leftpaneldata4}"  />
+                                <p:menuitem class="theatre" value="#{msgs.leftpaneldata5}"  />
+                            </p:submenu>
+                        </p:menu>
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center">
+                        <h:form><div class="moviedetails">
+                                <h1>#{msgs.panelmoviename7}</h1></div>
+                            <h:panelGrid columns="2" style="width:50%" columnClasses="logo,detail">
+
+                                <p:graphicImage value="../images/jurassicworld.jpg"/> 
+
+                                <p:outputPanel>
+                                    <h:panelGrid columns="2" cellpadding="5" width="200%">
+                                        <h:outputText value="Directed by:" />
+                                        <h:outputText value="Colin Trevorrow" style="font-weight: bold"/>
+
+                                        <h:outputText value="Produced by:" />
+                                        <h:outputText value="Frank Marshall,
+                                                      Patrick Crowley" style="font-weight: bold"/>
+
+                                        <h:outputText value="Starring:" />
+                                        <h:outputText value="Chris Pratt,
+                                                      Bryce Dallas Howard" style="font-weight: bold"/>
+                                    </h:panelGrid>
+                                </p:outputPanel>
+
+
+                            </h:panelGrid>  
+
+                            <div id="movielink">
+                                <a href="https://www.youtube.com/watch?v=MfZwU24LWIA" target="blank">Watch Trailer</a>
+                            </div>
+
+                        </h:form>
+
+
+                    </p:layoutUnit>
+
+                </p:layout>
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template="template/main_layout.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+                        <p:tab id="personal" title="#{msgs.ticketbooking}">
+                            <p:panel header="Personal Details">
+                                <p:messages />
+                                <h:panelGrid columns="2" columnClasses="label, value">
+                                    <h:outputText value="Firstname: *" />
+                                    <p:inputText value=" " required="true" label="Firstname"/>
+
+                                    <h:outputText value="Lastname: *" />
+                                    <p:inputText value=" " required="true" label="Lastname"/>
+
+                                    <h:outputText value="Age: " />
+                                    <p:inputText value=" " />
+
+                                    <h:outputText value="MovieName: " />
+                                    <p:inputText value=" " />
+
+                                    <h:outputText value="ShowTime: " />
+                                    <p:inputText value=" " />
+
+                                    <h:outputText value="Theatre: " />
+                                    <p:inputText value=" " />
+
+                                    <h:outputText value="Skip to last: " />
+                                    <h:selectBooleanCheckbox value=" " />
+                                </h:panelGrid>
+                                <h:commandButton value="Confirm Ticket" action="makepayment"/>
+                                <span class="spacing"><h:commandButton value="Cancel Process" action="home"/></span>
+                            </p:panel>
+                        </p:tab>
+
+
+
+
+
+                    </p:wizard>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

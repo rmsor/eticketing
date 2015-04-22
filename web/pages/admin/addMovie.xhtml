@@ -19,6 +19,10 @@
                 </div>
 
                 <div class="row">
+                    <div class="">
+                        <h:messages id="errMsg" style="color:red"/>
+                        <h:outputText value="#{movie.message}" style="color:red"/>
+                    </div>
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -27,13 +31,25 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <h:form>
+                                        <h:form enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label>Genre</label>
                                                 <h:selectOneMenu class="form-control" id="genreid" required="true" value="#{movie.genreid}">
                                                     <f:selectItems value="#{movie.geF.findAll()}" var="gen" itemValue="#{gen.genreid}" itemLabel="#{gen.genreName}"/>
                                                 </h:selectOneMenu>
                                                 <h:message for="genreid" class="text-danger"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Existing Image</label><br/>
+                                                <h:graphicImage width="100" height="100"  title="profile picture" alt="profile picture"  url="#{movie.profilePic}"/>
+                                               
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Movie Image</label>
+                                                <h:inputHidden value="#{movie.oldImage}"/>
+                                                <h:inputFile id="file" value="#{movie.file1}" requiredMessage="Profile pic is required" validator="#{ImageHelper.validateFile}" />
+                                                <div style="margin-top:10px;" id="max-upload-size">Maximum Filesize: 3 MB</div>
+                                                <h:message for="file" class="text-danger"/>
                                             </div>
                                             <div class="form-group">
                                                 <label>Movie Name</label>
