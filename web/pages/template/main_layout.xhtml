@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
@@ -35,14 +35,14 @@
                     <p:layoutUnit position="west" size="200" header="#{msgs.leftpanelheader}" collapsible="true">
                         <p:menu>
                             <p:submenu label="#{msgs.leftpanellabel}">
-                                <p:menuitem class="theatre"  value="#{msgs.leftpaneldata1}" outcome="theatre" />
-                                <p:menuitem class="theatre"  value="#{msgs.leftpaneldata2}" outcome="theatre" />
-                                <p:menuitem class="theatre"  value="#{msgs.leftpaneldata3}" outcome="theatre" />
-                                <p:menuitem class="theatre" value="#{msgs.leftpaneldata4}" outcome="theatre" />
-                                <p:menuitem class="theatre" value="#{msgs.leftpaneldata5}" outcome="theatre" />
+
+                                <c:forEach items="#{theaterController.theaterList}" var="theaters">
+                                    <p:menuitem class="theatre"  value="#{theaters.tname}" outcome="theatre" />
+                                </c:forEach>
+                                
                             </p:submenu>
                         </p:menu>
-                    </p:layoutUnit>
+                    </p:layoutUnit>s
 
                     <p:layoutUnit position="center">
 
