@@ -21,11 +21,15 @@ public class GenreFacade extends AbstractFacade<Genre> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
 
     public GenreFacade() {
         super(Genre.class);
     }
 
+    public Genre findById(Long id) {
+        Query findByGenreid = em.createNamedQuery("Genre.findByGenreid");
+        findByGenreid.setParameter("genreid", id);
+        return (Genre) findByGenreid.getSingleResult();
+    }
 
 }

@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Genre.findAll", query = "SELECT g FROM Genre g"),
     @NamedQuery(name = "Genre.findByGenreid", query = "SELECT g FROM Genre g WHERE g.genreid = :genreid"),
-    @NamedQuery(name = "Genre.findByName", query = "SELECT g FROM Genre g WHERE g.name = :name")})
+    @NamedQuery(name = "Genre.findByName", query = "SELECT g FROM Genre g WHERE g.genreName = :name")})
 public class Genre implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,11 +43,9 @@ public class Genre implements Serializable {
     private Long genreid;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "name")
-    private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "genreid")
-    private Collection<Movie> movieCollection;
+    @Column(name = "genreName")
+    private String genreName;
+    
 
     public Genre() {
     }
@@ -56,9 +54,9 @@ public class Genre implements Serializable {
         this.genreid = genreid;
     }
 
-    public Genre(Long genreid, String name) {
+    public Genre(Long genreid, String genreName) {
         this.genreid = genreid;
-        this.name = name;
+        this.genreName = genreName;
     }
 
     public Long getGenreid() {
@@ -69,22 +67,14 @@ public class Genre implements Serializable {
         this.genreid = genreid;
     }
 
-    public String getName() {
-        return name;
+    public String getGenreName() {
+        return genreName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
     }
 
-    @XmlTransient
-    public Collection<Movie> getMovieCollection() {
-        return movieCollection;
-    }
-
-    public void setMovieCollection(Collection<Movie> movieCollection) {
-        this.movieCollection = movieCollection;
-    }
 
     @Override
     public int hashCode() {

@@ -44,7 +44,7 @@ public class AdminUser implements Serializable {
     }
 
     public String login() {
-        if (adminName.equals("ram") && adminPassword.equals("shyam")) {
+        if (adminName.equals("rmsor.pth02@gmail.com") && adminPassword.equals("admin")) {
             isLoggedIn = true;
             return "/faces/pages/admin/dashboard?faces-redirect=true";
         }else{
