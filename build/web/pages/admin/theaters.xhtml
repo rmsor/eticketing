@@ -46,33 +46,33 @@
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Number of Screens" style="font-weight: bold"/>
+                                                <h:outputText value="Number of Screens" style="font-weight: bold" />
                                             </f:facet>
                                             <h:outputText value="#{theaters.noOfScreens}"/>
                                         </h:column>
 
                                         <h:column>
 
+                                            <f:facet name="header">
+                                                <h:outputText value="Edit" style="font-weight: bold"/>
+                                            </f:facet>
+
                                             <h:form role="form">
-                                                <f:facet name="header">
-                                                    <h:outputText value="Edit" style="font-weight: bold"/>
-                                                </f:facet>
 
-
-                                                <h:commandButton value="Edit" action="#{theaterController.editPageDisplay(theaters.tid)}" />
+                                                <h:commandButton value="Edit" class="btn btn-warning" action="#{theaterController.editPageDisplay(theaters.tid)}" />
 
                                             </h:form>
                                         </h:column>
 
                                         <h:column>
 
+
+                                            <f:facet name="header">
+                                                <h:outputText value="Delete" style="font-weight: bold"/>
+                                            </f:facet>
                                             <h:form role="form">
 
-                                                <f:facet name="header">
-                                                    <h:outputText value="Delete" style="font-weight: bold"/>
-                                                </f:facet>
-
-                                                <h:commandButton value="Delete"  action="#{theaterController.deleteRecord(theaters.tid)}" />
+                                                <h:commandButton value="Delete" onclick="return confirm('Do you really want to delete this record ?');" class="btn btn-danger"   action="#{theaterController.deleteRecord(theaters.tid)}" />
 
                                             </h:form>
                                         </h:column>

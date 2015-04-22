@@ -5,6 +5,7 @@
  */
 package ejb;
 
+import ejb.AbstractFacade;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;

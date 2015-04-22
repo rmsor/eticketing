@@ -25,12 +25,13 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+
 /**
- *
+ *    
  * @author rmsor_000
  */
 @Entity
-@Table(name = "show")
+@Table(name = "showTbl")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Show.findAll", query = "SELECT s FROM Show s"),

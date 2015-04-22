@@ -93,22 +93,20 @@ public class TheaterController {
 
         System.out.println("TID=" + tID);
 
+        Theater theaterEntity = new Theater();
+        theaterEntity.setTname(tName);
+        theaterEntity.setLocation(tLocation);
+        theaterEntity.setNoOfScreens(tNoScreens);
+
         if (tID != null) {
 
-            Theater theaterEntity = new Theater();
             theaterEntity.setTid(tID);
-            theaterEntity.setTname(tName);
-            theaterEntity.setLocation(tLocation);
-            theaterEntity.setNoOfScreens(tNoScreens);
             theaterFacade.edit(theaterEntity);
 
             return "theaters?faces-redirect=true";
 
         } else {
-            Theater theaterEntity = new Theater();
-            theaterEntity.setTname(tName);
-            theaterEntity.setLocation(tLocation);
-            theaterEntity.setNoOfScreens(tNoScreens);
+
             theaterFacade.create(theaterEntity);
             return "theaters?faces-redirect=true";
         }
