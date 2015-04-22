@@ -25,12 +25,13 @@ and open the template in the editor.
 }
 .firstpanel{
     float: left;
-    width: 50%;
 }
-.secondpanel{
-    float: right;
-    width: 50%;
+.innerBox{
+    float:left;
+    width:515px;
+    margin:10px;
 }
+
 .theatre{
     color: red;
 }

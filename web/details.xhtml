@@ -11,26 +11,21 @@
         <ui:composition template="pages/template/main_layout.xhtml">
             <ui:define name="content">
                 <h:form>
+
                     <div class="moviedetails">
-                        <h1>#{msgs.panelmoviename1}</h1></div>
+                        <h1>#{movie.mname}</h1></div>
                     <h:panelGrid columns="2" style="width:50%" columnClasses="logo,detail">
 
-                        <p:graphicImage url="/resources/images/fastandfurious.jpg"/> 
+                        <p:graphicImage url="#{movie.profilePic}" width="500" height="400"/> 
 
                         <p:outputPanel>
                             <h:panelGrid columns="2" cellpadding="5" width="200%">
                                 <h:outputText value="Directed by:" />
-                                <h:outputText value="James Wan" style="font-weight: bold"/>
+                                <h:outputText value="#{movie.director}" style="font-weight: bold"/>
 
-                                <h:outputText value="Produced by:" />
-                                <h:outputText value="Neal H. Moritz, Vin Diesel, Michael Fottrell" style="font-weight: bold"/>
 
                                 <h:outputText value="Starring:" />
-                                <h:outputText value="Vin Diesel,
-                                              Paul Walker,
-                                              Dwayne Johnson,
-                                              Michelle Rodriguez,
-                                              Jordana Brewster" style="font-weight: bold"/>
+                                <h:outputText value="#{movie.caste}" style="font-weight: bold"/>
                             </h:panelGrid>
                         </p:outputPanel>
 

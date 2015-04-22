@@ -124,6 +124,24 @@ public class MovieController {
         setOldImage(gnr.getProfilePic());
         return "/faces/pages/admin/addMovie";
     }
+    
+    
+    public String movieDetilsPage(Long movieID)
+    {
+         Movie gnr = gF.findById(movieID);
+        setCaste(gnr.getCaste());
+        setDirector(gnr.getDirector());
+        setMname(gnr.getMname());
+        setRating(gnr.getRating());
+        setGenreid(gnr.getGenreID());
+        setReleaseDate(gnr.getReleaseDate());
+        setLength(gnr.getLength());
+        setMovieid(gnr.getMovieid());
+        setProfilePic(gnr.getProfilePic());
+        setOldImage(gnr.getProfilePic());
+        System.out.println("Name="+gnr.getMname());
+        return "details";
+    }
 
     public String delete(Long gid) {
         Movie gnr = gF.findById(gid);;
