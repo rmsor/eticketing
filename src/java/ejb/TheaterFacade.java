@@ -19,9 +19,9 @@ import model.Theater;
  */
 @Stateless
 public class TheaterFacade extends AbstractFacade<Theater> {
+
     @PersistenceContext(unitName = "eticketingPU")
     private EntityManager em;
-    
 
     @Override
     protected EntityManager getEntityManager() {
@@ -31,10 +31,5 @@ public class TheaterFacade extends AbstractFacade<Theater> {
     public TheaterFacade() {
         super(Theater.class);
     }
-    
-    
-   
-    
-    
-    
+
 }

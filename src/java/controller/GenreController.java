@@ -75,7 +75,7 @@ public class GenreController {
         FacesMessage facesMessage = new FacesMessage("Deleted Successfully");
         facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
-        return "/faces/pages/admin/genre?faces-redirect=true";
+        return "genre?faces-redirect=true";
     }
 
     public String getGender() {
