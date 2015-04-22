@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template="template/main_layout.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <p:growl id="msgs" showDetail="true" />
+                    <div class="firstpanel">
+                        <p:panel id="basic" header="#{msgs.panelmoviename1}" footer="#{msgs.panelmoviefooter1}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+
+                                <p:graphicImage  url="/resources/images/fastandfurious.jpg"/>
+
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo1}" />
+
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="details"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+
+
+                        <p:panel id="basic" header="#{msgs.panelmoviename2}" footer="#{msgs.panelmoviefooter2}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/thelongestride.jpg"/>
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo2}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/thelongestride"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+
+                        <p:panel id="basic" header="#{msgs.panelmoviename3}" footer="#{msgs.panelmoviefooter3}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/iamlegend.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo3}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/iamlegend"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                        <p:panel id="basic" header="#{msgs.panelmoviename4}" footer="#{msgs.panelmoviefooter4}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/birdman.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo4}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/birdman"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                    </div>
+
+                    <div class="secondpanel">
+
+                        <p:panel id="basic" header="#{msgs.panelmoviename5}" footer="#{msgs.panelmoviefooter5}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/fan.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo5}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/fan"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                        <p:panel id="basic" header="#{msgs.panelmoviename6}" footer="#{msgs.panelmoviefooter6}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/roy.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo6}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/roy"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                        <p:panel id="basic" header="#{msgs.panelmoviename7}" footer="#{msgs.panelmoviefooter7}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/jurassicworld.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo7}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/jurassicworld"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                        <p:panel id="basic" header="#{msgs.panelmoviename8}" footer="#{msgs.panelmoviefooter8}" style="margin-bottom:20px">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="/resources/images/singhisking.jpg" />
+                                <h:outputText
+                                    value="#{msgs.panelmovieinfo8}" />
+                            </h:panelGrid>
+                            <span class="spacing">
+                                <h:button value="Details" outcome="movies/singhisking"/>
+                            </span>
+                            <span class="spacing">    
+                                <h:button value="Book My Show" outcome="booking"/>
+                            </span>
+                        </p:panel>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template="template/main_layout.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <div class="moviedetails">
+                        <h1>#{msgs.panelmoviename1}</h1></div>
+                    <h:panelGrid columns="2" style="width:50%" columnClasses="logo,detail">
+
+                        <p:graphicImage url="/resources/images/fastandfurious.jpg"/> 
+
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5" width="200%">
+                                <h:outputText value="Directed by:" />
+                                <h:outputText value="James Wan" style="font-weight: bold"/>
+
+                                <h:outputText value="Produced by:" />
+                                <h:outputText value="Neal H. Moritz, Vin Diesel, Michael Fottrell" style="font-weight: bold"/>
+
+                                <h:outputText value="Starring:" />
+                                <h:outputText value="Vin Diesel,
+                                              Paul Walker,
+                                              Dwayne Johnson,
+                                              Michelle Rodriguez,
+                                              Jordana Brewster" style="font-weight: bold"/>
+                            </h:panelGrid>
+                        </p:outputPanel>
+
+
+                    </h:panelGrid>  
+
+                    <div id="movielink">
+                        <a href="https://www.youtube.com/watch?v=TEiPbJNS8Mc" target="blank">Watch Trailer</a>
+                    </div>
+                </h:form>
+
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
